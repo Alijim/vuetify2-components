@@ -277,7 +277,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="2">
+          <v-col>
             <h2>V-tabs, cards and more</h2>
           </v-col>
         </v-row>
@@ -402,12 +402,12 @@
           </v-simple-table>
         </v-row>
         <v-row>
-          <v-col cols="2">
+          <v-col >
             <h2>V-progress-linear</h2>
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="2">
+          <v-col >
           <p>Loading</p>
           <v-progress-linear
           indeterminate
@@ -415,9 +415,59 @@
         ></v-progress-linear>
           </v-col>
         </v-row>
+        <v-row>
+          <v-col >
+            <h2>V-option, v-select</h2>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+          <v-select
+          v-model="e2"
+          :items="levels"
+        ></v-select>
+          </v-col>
 
+        </v-row>
+        <v-row>
+          <v-col >
+            <h2>V-divider, V-switch</h2>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
 
-
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Add section</v-list-item-title>
+              <v-divider></v-divider>
+               <v-list-item-title>
+                 <v-switch
+                  v-model="switch1"
+                  :label="`Activate copy`"
+                ></v-switch>
+                </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-row>
+        <v-row>
+            <v-col >
+            <h2>V-autocomplete</h2>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+          <v-autocomplete
+            :items="student"
+            color="blue-grey lighten-2"
+            label="name"
+            item-text="name"
+            return-object
+            >
+           
+          </v-autocomplete>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
@@ -429,7 +479,17 @@
       drawer: null,
       chip1: true,
       tab: null,
-    
+      e2 : 'Level 1',
+      levels : ['Level 1', 'Level 2', 'Level 3'],
+      studentNames : ['Marshall', 'Nunes'],
+      student: [{
+        name : 'Marshall',
+        firstName : 'Jean'
+      },{
+        name : 'Nunes',
+        firstName : 'Kevin'
+      }
+      ]
     }),
   }
 </script>
