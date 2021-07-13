@@ -436,7 +436,6 @@
         </v-row>
         <v-row>
           <v-col>
-
           <v-list-item>
             <v-list-item-content>
               <v-list-item-title>Add section</v-list-item-title>
@@ -449,6 +448,7 @@
                 </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+          </v-col>
         </v-row>
         <v-row>
             <v-col >
