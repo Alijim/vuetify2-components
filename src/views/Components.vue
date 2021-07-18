@@ -1,39 +1,5 @@
 <template>
-  <v-app id="inspire">
-    <v-system-bar app>
-      <v-spacer></v-spacer>
-
-      <v-icon>mdi-square</v-icon>
-
-      <v-icon>mdi-circle</v-icon>
-
-      <v-icon>mdi-triangle</v-icon>
-    </v-system-bar>
-
-    <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Application</v-toolbar-title>
-    </v-app-bar>
-
-    <v-navigation-drawer
-      v-model="drawer"
-      fixed
-      temporary
-    >
-      <!--  -->
-    </v-navigation-drawer>
-    <v-main class="white">
-      <v-container>
-      <v-row>
-          <router-link to="/components" tag="button">test</router-link>
-          </v-row>
-          <v-row>  
-            <router-view></router-view>      
-        </v-row>
-      </v-container>
-    </v-main>
-<!-- 
+<div class="components">
     <v-main class="white">
       <v-container>
         <h1> Liste des composants </h1>
@@ -552,17 +518,14 @@
             </v-card-text>
           </v-card>
         </v-row>
-        -->
-        
-     <!-- </v-container>
-    </v-main> -->
-  </v-app>
+      </v-container>
+    </v-main>
+    </div>
 </template>
-
 
 <script>
 
-import Edit from './components/Edit'
+import Edit from '../components/Edit'
 
   export default {
 
