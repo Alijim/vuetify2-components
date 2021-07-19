@@ -26,8 +26,12 @@
     <v-main class="white">
       <v-container>
       <v-row>
-          <router-link to="/components" tag="button">test</router-link>
-          </v-row>
+          <router-link to="/components" tag="button">component</router-link>
+      </v-row>
+      <v-row>
+          <router-link to="/option" tag="button">Option</router-link>
+
+      </v-row>
           <v-row>  
             <router-view></router-view>      
         </v-row>
