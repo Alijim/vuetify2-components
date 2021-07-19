@@ -80,8 +80,8 @@
     
 	<h3>Annotation</h3>
 	<v-text-field
+  v-model="anotate"
     label="Annotation filename pattern"
-    value="(id)_(ID)"
   ></v-text-field>
 	<p>(ID) is replaced by the student's name.<br/>
 		(N) is replaced by the student number.<br/>
@@ -92,21 +92,28 @@
 		Click to add:
       <v-chip
       class="ma-2"
+      v-on:click="addFinalGrade()"
       >
       FinalGrade
       </v-chip>
       <v-chip
       class="ma-2"
+      v-on:click="addTotal()"
+
       >
       Total
       </v-chip>
       <v-chip
       class="ma-2"
+      v-on:click="addId()"
+
       >
       Id
       </v-chip>
       <v-chip
       class="ma-2"
+      v-on:click="addName()"
+
       >
       Name
       </v-chip>
@@ -114,6 +121,7 @@
 
   <h3>Annotation</h3>
 	<v-text-field
+    v-model="annotation"
     label="Annotation filename pattern"
     value="Mark: %(FinalGrade)/%m (total score: %S/%M)">
   </v-text-field>
@@ -131,21 +139,27 @@
 		Click to add:
       <v-chip
       class="ma-2"
+      v-on:click="this.annotation += 'salut'"
       >
       FinalGrade
       </v-chip>
       <v-chip
       class="ma-2"
+      v-on:click="alert('salut')"
+      
       >
       Total
       </v-chip>
       <v-chip
       class="ma-2"
+      @click="alert('ok')"
       >
       Id
       </v-chip>
       <v-chip
       class="ma-2"
+      v-on:click="test()"
+
       >
       Name
       </v-chip>
@@ -163,7 +177,9 @@
         </thead>
         <tbody>
           <annotation-marks></annotation-marks>
-
+          <annotation-marks></annotation-marks>
+          <annotation-marks></annotation-marks>
+          <annotation-marks></annotation-marks>
         </tbody>
         
       </template>
@@ -189,8 +205,25 @@ import AnnotationMarks from '../components/AnnotationMarks'
 
 
     data: () => ({ 
+      anotate : '(id)_(ID)',
       drawer: null,
       typeOfScan : ['Different answer sheets', 'Some answer sheets were photocopied'],
     }),
+
+
+    methods: {
+      addFinalGrade() {
+        this.anotate += '(FinalGrade)'
+      },
+      addTotal() {
+        this.anotate += '(Total)'
+      },
+      addId() {
+        this.anotate += '(id)'
+      },
+      addName() {
+        this.anotate += '(name)'
+      }
+    }
   }
 </script>

@@ -40,9 +40,7 @@
         color = "black"
         elevation="1"
         fab
-        large
         tile
-        x-large
         ></v-btn>
 
         <v-btn
@@ -51,9 +49,7 @@
         color = "red"
         elevation="1"
         fab
-        large
         tile
-        x-large
         ></v-btn>
 
         <v-btn
@@ -62,9 +58,7 @@
         color = "green"
         elevation="1"
         fab
-        large
         tile
-        x-large
         ></v-btn>
 
         <v-btn
@@ -74,9 +68,7 @@
         color = "primary"
         elevation="1"
         fab
-        large
         tile
-        x-large
         ></v-btn>
     </td>
 </tr>
@@ -96,14 +88,9 @@
     }),
 
     methods:{
-        goBlue: function(event){
-            alert('a')
-            this.color = 'red'
-        },
-
          mdii () {
             if (this.e1 == 'circle') 
-                this.icon = 'mdi-circle'
+                this.icon = 'mdi-circle-outline'
             else if (this.e1 == 'mark') 
                 this.icon = 'mdi-close'                
             else if (this.e1 == 'box') 
