@@ -150,22 +150,42 @@
       Name
       </v-chip>
 		</div>
+    <v-simple-table>
+      <template v-slot:default>
+        <thead>
+          <tr> 
+            <th>Preview</th>
+            <th>To be ticked</th>
+            <th>Ticked</th>
+            <th>Type</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tbody>
+          <annotation-marks></annotation-marks>
 
-    
-
-    
-
+        </tbody>
+        
+      </template>
+    </v-simple-table>
 </div>
 
 </template>
 
 <script>
 
+import AnnotationMarks from '../components/AnnotationMarks'
+
 
   export default {
 
+
+
     name: 'Option',
 
+      components: {
+      AnnotationMarks,
+    },
 
 
     data: () => ({ 
