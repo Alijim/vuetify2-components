@@ -32,7 +32,7 @@
 		<v-btn
       elevation="2"
       class="py-4 mx-2"
-      color="primary"
+      color="orange"
       >Save option
     </v-btn>
 	</p>
@@ -55,7 +55,7 @@
   <h3>Scan</h3>
 	<p>
 		<label>Threshold: <span
-            class="text-h2 font-weight-light"
+            class="font-weight-light"
             v-text="percent"
           ></span> black filled</label>
     <v-slider
@@ -122,8 +122,7 @@
   <h3>Annotation</h3>
 	<v-text-field
     v-model="annotation"
-    label="Annotation filename pattern"
-    value="Mark: %(FinalGrade)/%m (total score: %S/%M)">
+    label="Annotation filename pattern">
   </v-text-field>
 
     <p>
@@ -139,26 +138,27 @@
 		Click to add:
       <v-chip
       class="ma-2"
-      v-on:click="this.annotation += 'salut'"
+      v-on:click="addFinalGradeA()"
       >
       FinalGrade
       </v-chip>
       <v-chip
       class="ma-2"
-      v-on:click="alert('salut')"
-      
+      v-on:click="addTotalA()"
+
       >
       Total
       </v-chip>
       <v-chip
       class="ma-2"
-      @click="alert('ok')"
+      v-on:click="addIdA()"
+
       >
       Id
       </v-chip>
       <v-chip
       class="ma-2"
-      v-on:click="test()"
+      v-on:click="addNameA()"
 
       >
       Name
@@ -206,6 +206,8 @@ import AnnotationMarks from '../components/AnnotationMarks'
 
     data: () => ({ 
       anotate : '(id)_(ID)',
+      annotation : 'Mark: %(FinalGrade)/%m (total score: %S/%M)',
+      percent : '0',
       drawer: null,
       typeOfScan : ['Different answer sheets', 'Some answer sheets were photocopied'],
     }),
@@ -223,7 +225,20 @@ import AnnotationMarks from '../components/AnnotationMarks'
       },
       addName() {
         this.anotate += '(name)'
+      },
+      addFinalGradeA() {
+        this.annotation += '(FinalGrade)'
+      },
+      addTotalA() {
+        this.annotation += '(Total)'
+      },
+      addIdA() {
+        this.annotation += '(id)'
+      },
+      addNameA() {
+        this.annotation += '(name)'
       }
+
     }
   }
 </script>
