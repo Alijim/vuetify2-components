@@ -21,10 +21,10 @@
         </v-icon>
     </td>
     <td>
-        {{e1}}
+        {{toBeTicked}}
     </td>
     <td>
-        {{icon}}
+        {{ticked}}
     </td>
     <td>
         <v-select
@@ -99,6 +99,11 @@
                 this.icon = ''
         }
     },
+
+    props : {
+        toBeTicked: String,
+        ticked: String
+    }
 
 
 

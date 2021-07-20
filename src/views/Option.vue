@@ -1,9 +1,13 @@
 <template>
   <div class="about">
-    <h1>This is an page</h1>
     <h2>Collaborators</h2>
-	<v-chip placeholder="add another username" secondary-placeholder="+username"></v-chip>
-  <h2>Raw exports</h2>
+<v-combobox
+          v-model="select"
+          label="Add a username"
+          multiple
+          chips
+        ></v-combobox>  
+    <h2>Raw exports</h2>
 	<p>
      <v-btn
       elevation="2"
@@ -176,10 +180,10 @@
           </tr>
         </thead>
         <tbody>
-          <annotation-marks></annotation-marks>
-          <annotation-marks></annotation-marks>
-          <annotation-marks></annotation-marks>
-          <annotation-marks></annotation-marks>
+          <annotation-marks toBeTicked = "no" ticked="no"></annotation-marks>
+          <annotation-marks toBeTicked = "no" ticked="yes"></annotation-marks>
+          <annotation-marks toBeTicked = "yes" ticked="no"></annotation-marks>
+          <annotation-marks toBeTicked = "yes" ticked="yes"></annotation-marks>
         </tbody>
         
       </template>
