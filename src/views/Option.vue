@@ -96,27 +96,27 @@
 		Click to add:
       <v-chip
       class="ma-2"
-      v-on:click="addFinalGrade()"
+      v-on:click="addColToFileName('(FinalGrade)')"
       >
       FinalGrade
       </v-chip>
       <v-chip
       class="ma-2"
-      v-on:click="addTotal()"
+      v-on:click="addColToFileName('(Total)')"
 
       >
       Total
       </v-chip>
       <v-chip
       class="ma-2"
-      v-on:click="addId()"
+      v-on:click="addColToFileName('(id)')"
 
       >
       Id
       </v-chip>
       <v-chip
       class="ma-2"
-      v-on:click="addName()"
+      v-on:click="addColToFileName('(Name)')"
 
       >
       Name
@@ -142,27 +142,27 @@
 		Click to add:
       <v-chip
       class="ma-2"
-      v-on:click="addFinalGradeA()"
+      v-on:click="addColToAnnotation('(FinalGrade)')"
       >
       FinalGrade
       </v-chip>
       <v-chip
       class="ma-2"
-      v-on:click="addTotalA()"
+      v-on:click="addColToAnnotation('(Total)')"
 
       >
       Total
       </v-chip>
       <v-chip
       class="ma-2"
-      v-on:click="addIdA()"
+      v-on:click="addColToAnnotation('(id)')"
 
       >
       Id
       </v-chip>
       <v-chip
       class="ma-2"
-      v-on:click="addNameA()"
+      v-on:click="addColToAnnotation('(Name)')"
 
       >
       Name
@@ -218,30 +218,14 @@ import AnnotationMarks from '../components/AnnotationMarks'
 
 
     methods: {
-      addFinalGrade() {
-        this.anotate += '(FinalGrade)'
+
+      addColToFileName(name) {
+        this.anotate += name
       },
-      addTotal() {
-        this.anotate += '(Total)'
+
+      addColToAnnotation(name) {
+        this.annotation += name
       },
-      addId() {
-        this.anotate += '(id)'
-      },
-      addName() {
-        this.anotate += '(name)'
-      },
-      addFinalGradeA() {
-        this.annotation += '(FinalGrade)'
-      },
-      addTotalA() {
-        this.annotation += '(Total)'
-      },
-      addIdA() {
-        this.annotation += '(id)'
-      },
-      addNameA() {
-        this.annotation += '(name)'
-      }
 
     }
   }
