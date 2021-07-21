@@ -192,10 +192,10 @@
           </tr>
         </thead>
         <tbody>
-          <annotation-marks :typeIcon= "ctrl.options.symbole_0_0_type" toBeTicked = "no" ticked="no"></annotation-marks>
-          <annotation-marks :typeIcon= "ctrl.options.symbole_0_1_type" toBeTicked = "no" ticked="yes"></annotation-marks>
-          <annotation-marks :typeIcon= "ctrl.options.symbole_1_0_type" toBeTicked = "yes" ticked="no"></annotation-marks>
-          <annotation-marks :typeIcon= "ctrl.options.symbole_1_1_type" toBeTicked = "yes" ticked="yes"></annotation-marks>
+          <annotation-marks :typeIcon= "ctrl.options.symbole_0_0_type"  :colorIcon = "ctrl.options.symbole_0_0_color" toBeTicked = "no" ticked="no"></annotation-marks>
+          <annotation-marks :typeIcon= "ctrl.options.symbole_0_1_type" :colorIcon = "ctrl.options.symbole_0_1_color" toBeTicked = "no" ticked="yes"></annotation-marks>
+          <annotation-marks :typeIcon= "ctrl.options.symbole_1_0_type" :colorIcon = "ctrl.options.symbole_1_0_color" toBeTicked = "yes" ticked="no"></annotation-marks>
+          <annotation-marks :typeIcon= "ctrl.options.symbole_1_1_type" :colorIcon = "ctrl.options.symbole_1_1_color" toBeTicked = "yes" ticked="yes"></annotation-marks>
         </tbody>
         
       </template>

@@ -15,7 +15,7 @@
             </v-icon>
         </div>-->
         <v-icon
-            :color="color"
+            :color="colorIcon"
               large
             >{{icon}}
         </v-icon>
@@ -44,7 +44,7 @@
         ></v-btn>
 
         <v-btn
-        v-on:click="color = 'red'"
+        v-on:click="color = '#ff0000'"
         class="mx-2"
         color = "red"
         elevation="1"
@@ -53,7 +53,7 @@
         ></v-btn>
 
         <v-btn
-        v-on:click="color = 'green'"
+        v-on:click="color = '#00ff00'"
         class="mx-2"
         color = "green"
         elevation="1"
@@ -62,8 +62,7 @@
         ></v-btn>
 
         <v-btn
-        v-model="btnBlue"
-        v-on:click="color = 'primary'"
+        v-on:click="color = '#0000ff'"
         class="mx-2"
         color = "primary"
         elevation="1"
