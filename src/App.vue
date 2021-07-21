@@ -566,17 +566,11 @@
 
 <script>
 
-import Edit from './components/Edit'
-
   export default {
 
     name: 'App',
 
-    components: {
-      Edit,
-    },
-
-
+    
 
     data: () => ({ 
       drawer: null,

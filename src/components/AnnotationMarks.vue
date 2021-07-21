@@ -2,7 +2,7 @@
 <tr>
     <td >
 
-        <!--<div v-switch="e1">
+        <!--<div v-switch="type">
             <v-icon v-case="'circle'"
             :color="color"
               large
@@ -28,8 +28,8 @@
     </td>
     <td>
         <v-select
-            v-model="e1"
-            v-on:change ="mdii"
+            v-model="type"
+            v-on:change ="mdii(type)"
             :items="item" >
         </v-select>
     </td>
@@ -81,28 +81,34 @@
     name: 'AnnotationMarks',
 
     data: () => ({ 
-        e1 : 'none',
+        type : 'none',
         item : ['none', 'circle', 'mark', 'box'],
         icon : '',
         color : 'black',
     }),
 
+   beforeMount(){
+        this.mdii(this.typeIcon)
+    }, 
+
     methods:{
-         mdii () {
-            if (this.e1 == 'circle') 
+         mdii (t) {
+            if (t== 'circle') 
                 this.icon = 'mdi-circle-outline'
-            else if (this.e1 == 'mark') 
+            else if (t == 'mark') 
                 this.icon = 'mdi-close'                
-            else if (this.e1 == 'box') 
+            else if (t == 'box') 
                 this.icon = 'mdi-square-outline'
-            else if(this.e1 == 'none')
+            else if(t == 'none')
                 this.icon = ''
         }
     },
 
     props : {
         toBeTicked: String,
-        ticked: String
+        ticked: String,
+        typeIcon : String,
+        colorIcon : String
     }
 
 
