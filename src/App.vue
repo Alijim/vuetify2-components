@@ -32,6 +32,11 @@
           <router-link to="/option" tag="button">Option</router-link>
 
       </v-row>
+
+       <v-row>
+          <router-link to="/edit" tag="button">Edit</router-link>
+
+      </v-row>
           <v-row>  
             <router-view></router-view>      
         </v-row>

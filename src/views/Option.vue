@@ -1,5 +1,13 @@
 <template>
   <div class="about">
+
+      <section v-if="errored">
+        <p>Nous sommes désolés, nous ne sommes pas en mesure de récupérer ces informations pour le moment. Veuillez réessayer ultérieurement.</p>
+      </section>
+
+      <section v-else>
+        <div v-if="loading">Chargement...</div>
+
     <h2>Collaborators</h2>
     <v-combobox
           v-model="select"
@@ -9,10 +17,6 @@
           multiple
         ></v-combobox>  
     <h2>Raw exports</h2>
-    <p>{{ctrl.options.nombre_copies}}</p>
-    <p>{{ctrl.options.seuil}}</p>
-    <p>{{ctrl.options.seuil.toString()}}</p>
-        <p>{{ctrl.options.symbole_1_0_type}}</p>
 
 	<p>
      <v-btn
@@ -97,6 +101,8 @@
 	<h3>Annotation</h3>
 	<v-text-field
   v-model="anotate"
+      :value="ctrl.options.modele_regroupement"
+
     label="Annotation filename pattern"
   ></v-text-field>
 	<p>(ID) is replaced by the student's name.<br/>
@@ -136,8 +142,11 @@
 		</div>
 
   <h3>Annotation</h3>
+  <p>{{ctrl.options.verdict}}</p>
 	<v-text-field
-    v-model="annotation"
+      v-model="annotation"
+
+    :value="ctrl.options.verdict"
     label="Annotation filename pattern">
   </v-text-field>
 
@@ -200,6 +209,7 @@
         
       </template>
     </v-simple-table>
+    </section>
 </div>
 
 </template>
@@ -221,25 +231,50 @@ import axios from 'axios';
       AnnotationMarks,
     },
 
+    /*data: () => ({ 
+      anotate : '(id)_(ID)',
+      annotation : '',
+      ctrl : '',
+      test: 'hello',
+      percent : '0.2',
+      copyNumber : 0,
+      drawer: null,
+      typeOfScan : ['Different answer sheets', 'Some answer sheets were photocopied'],
+      
+    }),*/
 
     data: () => ({ 
       anotate : '(id)_(ID)',
-      annotation : 'Mark: %(FinalGrade)/%m (total score: %S/%M)',
-      ctrl : '',
-      percent : '',
+      annotation : '',
+      ctrl : null,
+      errored : false,
+      loading : true,
+      test: 'hello',
+      percent : '0.2',
       copyNumber : 0,
+      isLoaded : false,
       drawer: null,
       typeOfScan : ['Different answer sheets', 'Some answer sheets were photocopied'],
       
     }),
 
     beforeMount(){
-      this.getValues()
+      this.ctrl = this.fetchData()
+      this.printValues()
     },
 
-    mounted(){
-      this.printValues()
+   
 
+    mounted(){
+      axios.get('option.json')
+        .then(res => this.ctrl = res.data)
+        .catch(err => {
+        
+          console.log(err)
+          this.errored = true
+        
+        })
+        .finally(() => this.loading = false)
     },
 
 
@@ -255,21 +290,44 @@ import axios from 'axios';
       },
 
       printValues(){
+        //this.percent = this.ctrl.options.seuil
         this.percent = this.ctrl.options.seuil
+       },
+
+      insertValues(v) {
+        this.ctrl = v
+      },
+
+      fetchData() {
+        axios.get('option.json')
+        .then(res => res.data.data)
+        .catch(err => console.log(err))
       },
 
   
       getValues(){
-        axios.get('option.json')
-      .then(res => this.ctrl = res.data)
-      .catch(err => console.log(err))
-      console.log("hey"+this.ctrl)
+
+        this.fetchData();
+
+        /*
+        this.isLoaded = true
+
+        return this.fetchData().then(items =>
+        {
+          this.isLoaded = false
+          return {items}
+        }
+        )*/
+
+    
+        /*return this.axios.get('option.json')
+        .then(res => this.insertValues(res.data))
+        .catch(err => console.log(err))*/
 
       //this.ctrl.options.seuil
       //this.copyNumber =  parseInt(this.ctrl.options.nombre_copies)
 
       },
-
     
     }
 
